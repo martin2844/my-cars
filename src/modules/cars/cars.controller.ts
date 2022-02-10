@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, ValidationPipe, Param, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  ValidationPipe,
+  Param,
+  ParseIntPipe,
+  UseGuards,
+} from '@nestjs/common';
+import { BasicGuard } from 'src/auth/auth.guard';
 import { CarDto } from './car.dto';
 import { CarsService } from './cars.service';
 
@@ -11,19 +21,19 @@ export class CarsController {
     return this.service.all();
   }
 
-  @Get(":id")
-  async findOne(@Param('id', ParseIntPipe) id:number) {
+  @Get(':id')
+  async findOne(@Param('id', ParseIntPipe) id: number) {
     return this.service.one(id);
   }
 
-  
-  @Get("/images/:id")
-  async getCarImages(@Param('id', ParseIntPipe) id:number) {
+  @Get('/images/:id')
+  async getCarImages(@Param('id', ParseIntPipe) id: number) {
     return this.service.getCarImages(id);
   }
 
-  @Post("/add")
-  async add(@Body(ValidationPipe) input:CarDto) {
+  @Post('/add')
+  @UseGuards(BasicGuard)
+  async add(@Body(ValidationPipe) input: CarDto) {
     return this.service.add(input);
   }
 }

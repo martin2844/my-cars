@@ -24,8 +24,8 @@ export class Car {
   @Column()
   createdAt: Date;
 
-  @OneToMany(() => Image, image => image.car_id)
-  images: Image[]
+  @OneToMany(() => Image, (image) => image.car_id)
+  images: Image[];
 
   @Column()
   updatedAt: Date;

@@ -7,7 +7,7 @@ export class ImageDto {
   @IsUrl()
   @IsString()
   url: string;
-  
+
   @IsInt()
   car_id: number;
 
