@@ -17,13 +17,17 @@
             {#each cars as item, i}
          	<li>{i + 1}: {item.id} x {item.brand} x {item.model}</li>
         {/each}
-        </div>
+        </div> 
         <div class="s3">
             <h1>{message}</h1>
         </div>
     </div>
     <script>
-   
+          console.log("Initializing")
+        new fullpage("#fullPage", {
+            autoScrolling: true
+        })
+        console.log("Constructor Passed")
     </script>
 </Layout>
 
