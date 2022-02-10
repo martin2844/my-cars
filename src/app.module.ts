@@ -7,7 +7,6 @@ import { ImagesModule } from './modules/images/image.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-
 import ormConfig from './config/orm.config';
 import ormProdConfig from './config/ormProd.config';
 
