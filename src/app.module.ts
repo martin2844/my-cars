@@ -9,7 +9,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import ormConfig from './config/orm.config';
 import ormProdConfig from './config/ormProd.config';
-
+console.log(join(__dirname, '..', './views/styles.css'));
+console.log(join(__dirname, '..', 'mycars.db'));
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -34,6 +35,10 @@ import ormProdConfig from './config/ormProd.config';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'mycars.db'),
       serveRoot: '/db/mycars.db',
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', './src/views/styles.css'),
+      serveRoot: '/styles.css',
     }),
   ],
   controllers: [AppController],

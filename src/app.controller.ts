@@ -7,7 +7,7 @@ export class AppController {
   @Get()
   @Render('Home')
   async getHomePage() {
-    const cars = await this.carService.all();
+    const cars = await this.carService.getAllCarImages();
     return { message: 'NestJS ❤ Svelte', cars };
   }
 }

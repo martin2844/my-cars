@@ -26,6 +26,11 @@ export class CarsController {
     return this.service.one(id);
   }
 
+  @Get('/images/all')
+  async getAllCarImages() {
+    return this.service.getAllCarImages();
+  }
+
   @Get('/images/:id')
   async getCarImages(@Param('id', ParseIntPipe) id: number) {
     return this.service.getCarImages(id);
