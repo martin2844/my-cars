@@ -10,21 +10,28 @@ import {
   ParseIntPipe,
   UseGuards,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { BasicGuard } from '../../auth/auth.guard';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { ImageDto } from './image.dto';
 import { ImageService } from './image.service';
 
+@ApiTags('images')
 @Controller('images')
 export class ImagesController {
   constructor(private readonly service: ImageService) {}
 
   @Get()
+  @ApiOperation({ summary: 'get all images in the DB' })
   async findAll() {
     return this.service.all();
   }
 
   @Post('upload/:id')
+  @ApiOperation({
+    summary: 'upload an image associated to a Car_id as the route param id',
+  })
+  @ApiBearerAuth()
   @UseGuards(BasicGuard)
   @UseInterceptors(FilesInterceptor('files'))
   async uploadFiles(
@@ -35,6 +42,9 @@ export class ImagesController {
   }
 
   @Post('/add')
+  @ApiOperation({
+    summary: 'add an image, requires the image allready uploaded',
+  })
   @UseGuards(BasicGuard)
   async add(@Body(ValidationPipe) input: ImageDto) {
     return this.service.add(input);

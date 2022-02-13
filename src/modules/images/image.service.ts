@@ -35,7 +35,7 @@ export class ImageService {
             },
             {
               headers: {
-                Authorization: 'Client-ID afda234326b61af',
+                Authorization: `Client-ID ${process.env.IMG_ID}`,
               },
             },
           )

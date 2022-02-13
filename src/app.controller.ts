@@ -1,5 +1,9 @@
 import { Controller, Get, Render } from '@nestjs/common';
+import { ApiExcludeController } from '@nestjs/swagger';
 import { CarsService } from './modules/cars/cars.service';
+ApiExcludeController;
+
+@ApiExcludeController()
 @Controller()
 export class AppController {
   constructor(private carService: CarsService) {}

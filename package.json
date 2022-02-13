@@ -26,6 +26,7 @@
     "@nestjs/core": "^8.2.6",
     "@nestjs/platform-express": "^8.2.6",
     "@nestjs/serve-static": "^2.2.2",
+    "@nestjs/swagger": "^5.2.0",
     "@nestjs/typeorm": "^8.0.3",
     "@types/multer": "^1.4.7",
     "axios": "^0.25.0",
@@ -37,6 +38,7 @@
     "rxjs": "^7.5.4",
     "sqlite3": "^5.0.2",
     "svelte": "^3.46.4",
+    "swagger-ui-express": "^4.3.0",
     "typeorm": "^0.2.41"
   },
   "devDependencies": {

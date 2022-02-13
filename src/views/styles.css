@@ -1,5 +1,5 @@
 body {
-    font-family: arial, helvetica;
+    font-family: helvetica, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #f2f2f2;
   }
   h1 {
@@ -28,6 +28,11 @@ body {
     top: 50%;
     transform: translateY(-50%);
     text-align: center;
+  }
+
+  .content.home {
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   .inner-content {
@@ -66,6 +71,7 @@ body {
   .thumbnail {
     width: 50px;
     height: 50px;
+    margin: 10px;
     object-fit: cover;
     top: unset;
     left: unset;
@@ -332,15 +338,72 @@ body {
   }
 
   a {
-    position: relative;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    top: 150px;
-    left: 10px;
-    font-size: 10px;
-    text-decoration: none;
     font-weight: bold;
-    text-align: center;
+    color: red;
+    text-decoration: none;
   }
 
   a:hover {
+    color: lime;
+  }
+
+  .arrow-icon {
+    transform: rotate(90deg);
+  }
+
+  .arrow {
+    z-index: -20;
+    text-align: center;
+    margin: 8% 0;
+  }
+
+  .bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+
+
+  @media (max-width: 600px) {
+    .subcontent {
+      padding: 0 1rem;
+      line-height: 1.4;
+    }
+
+    .content.cars {
+      padding: 0 1rem;
+    }
+
+    .toggle-switch {
+      right: -40px;
+    }
+
+    .title {
+      margin-top: 0;
+    }
+
+    .brand {
+      margin-bottom: 0;
+    }
+
+    .inner-content p {
+      margin-top: 0;
+    }
+
+    .thumbnail {
+      margin: 5px;
+    }
+
   }
