@@ -53,7 +53,7 @@
                   class="glightbox3 thumbnail"
                   data-gallery="gallery1"
                 >
-                  <img class="thumbnail" {src} alt="Car" />
+                  <img class="thumbnail" {src} loading="lazy" alt="Car" />
                 </a>
               {/each}
             </div>
